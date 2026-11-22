@@ -31,7 +31,9 @@
     *   Это доказало, что проблема с образом решена, но проблема с DNS остаётся.
 .
 .
-![alt text](https://github.com/SLzDevOps/netology-kubernetes-12/blob/main/screenshots/Screenshot_1052.png).
+
+<img width="420" height="317" alt="image" src="https://github.com/user-attachments/assets/4a59e94f-ec85-45ed-aa60-10506cb7b210" />
+
 .
 .
 #### Этап 3: Окончательное исправление (финальный манифест)
