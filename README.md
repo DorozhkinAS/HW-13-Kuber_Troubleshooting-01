@@ -1,8 +1,5 @@
-# Домашнее задание Troubleshooting" - `Фомичев Анатолий`
+# Домашнее задание Troubleshooting" - `Дорожкин Артем`
 
-## Ссылка на Д3 - https://github.com/netology-code/kuber-homeworks/blob/main/3.5/3.5.md
-  
-  
 ### Задача 1
   
 
@@ -18,7 +15,9 @@
     *   Короткое имя резолвится только в пределах своего неймспейса, поэтому сервис не находится.
 .
 .
-![alt text](https://github.com/SLzDevOps/netology-kubernetes-12/blob/main/screenshots/Screenshot_1051.png).
+
+<img width="1062" height="287" alt="image" src="https://github.com/user-attachments/assets/334cc785-e381-4682-9da3-eefd3834da05" />
+
 .
 .
 #### Этап 2: Частичное исправление (промежуточный тест)
