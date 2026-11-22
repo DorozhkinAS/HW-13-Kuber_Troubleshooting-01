@@ -42,6 +42,9 @@
 2.  **DNS-имя:** В команде `curl` короткое имя `auth-db` заменено на **полное DNS-имя** `auth-db.data.svc.cluster.local`.
 .
 .
+
+<img width="702" height="409" alt="image" src="https://github.com/user-attachments/assets/547b7cd8-2718-4b74-bbb3-036cf9208c89" />
+
 ![alt text](https://github.com/SLzDevOps/netology-kubernetes-12/blob/main/screenshots/Screenshot_1053.png).
 ![alt text](https://github.com/SLzDevOps/netology-kubernetes-12/blob/main/screenshots/Screenshot_1054.png).
 .
