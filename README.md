@@ -44,6 +44,67 @@
 2.  **DNS-имя:** В команде `curl` короткое имя `auth-db` заменено на **полное DNS-имя** `auth-db.data.svc.cluster.local`.
 .
 .
+task-fixed.yaml
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-consumer
+  namespace: web
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web-consumer
+  template:
+    metadata:
+      labels:
+        app: web-consumer
+    spec:
+      containers:
+      - command:
+        - sh
+        - -c
+        - while true; do curl auth-db.data.svc.cluster.local; sleep 5; done
+        image: curlimages/curl:latest
+        name: busybox
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-db
+  namespace: data
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth-db
+  template:
+    metadata:
+      labels:
+        app: auth-db
+    spec:
+      containers:
+      - image: nginx:1.19.1
+        name: nginx
+        ports:
+        - containerPort: 80
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-db
+  namespace: data
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: auth-db
+
+```
 
 <img width="702" height="409" alt="image" src="https://github.com/user-attachments/assets/547b7cd8-2718-4b74-bbb3-036cf9208c89" />
 
@@ -58,4 +119,5 @@
 
 ## 📝 Итоговый вывод
 
-В ходе диагностики было установлено, что проблема носит составной характер. Замена образа решила проблему с загрузкой, но обнажила проблему с DNS-резолвингом. Окончательное решение потребовало исправления **обоих** аспектов: использование современного образа и указание полного DNS-имени сервиса.
+В ходе диагностики было установлено, что проблема носит составной характер. Замена образа решила проблему с загрузкой, но обнажила проблему с DNS-резолвингом. 
+Окончательное решение потребовало исправления **обоих** аспектов: использование современного образа и указание полного DNS-имени сервиса.
